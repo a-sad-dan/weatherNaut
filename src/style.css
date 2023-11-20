@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    font-size: 18px;
+    --white: #f0f0f0;
+    --off-white: #E5E95E5;
+    --grey: #b2b2b2;
+    --dark-green: #0A2E25;
+    --border-color: #80DFEC66;
+
+    --dark-green: #0E2D44;
+}
+
+body {
+    background: linear-gradient(90deg, #012215 0%, #00605C 100%);
+    color: var(--white);
+    font-family: 'Nunito', sans-serif;
+
+    background:  linear-gradient(0deg, #16003C 4.92%, #044B71 90.38%), linear-gradient(90deg, #012215 0%, #00605C 100%);
+    background-blend-mode: lighten, normal;
+
+}
+
+.page-wrapper {
+    height: 100vh;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+#top-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 1.5rem;
+}
+
+#top-bar>* {
+    display: inherit;
+    align-items: center;
+}
+
+#logo p {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#logo img {
+    width: 48px;
+}
+
+#query {
+    align-self: stretch;
+    background: var(--dark-green);
+    color: var(--white);
+    padding: 0 1em;
+    border-radius: 32px 0 0 32px;
+    /* border: 2px solid var(--white); */
+    border: 4px solid var(--border-color);
+    border-right: unset;
+    min-width: 320px;
+    font-size: 1.33rem;
+    font-weight: 600;
+    padding: 0.45em 1.25em;
+}
+
+button {
+    cursor: pointer;
+}
+
+button#search {
+    background: var(--dark-green);
+    /* border: 2px solid var(--white); */
+    border: 4px solid var(--border-color);
+
+    border-radius: 0 32px 32px 0;
+    border-left: 0;
+    display: flex;
+    padding: 0.45em 1.25em;
+}
+
+button#search img {
+    width: 32px;
+    padding: 0.3em 0;
+}
+
+button#unit {
+    border-radius: 32px;
+    border: 4px solid rgba(128, 223, 236, 0.40);
+    background: var(--dark-green);
+    color: var(--white);
+    padding: 0.45em 1.25em;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-size: 1.33rem;
+
+}
+
+button#unit:active {
+    border-style: inset;
+}
+
+footer {
+    padding: 1rem 0;
+    text-align: center;
+
+    color: var(--off-white);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+footer a {
+    color: unset;
+    text-decoration: unset;
+}
+
+a:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+footer .greyed-text {
+    color: var(--grey);
+    font-size: 1.1rem;
+}

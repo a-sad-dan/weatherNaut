@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeatherNaut</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=excon@1&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    
+    <div class="page-wrapper">
+
+        <div id="top-bar">
+            <div id="logo">
+                <img src="<%= require('./assets/logo.svg') %>" alt="">
+                <p class="name">WeatherNaut</p>
+            </div>
+            <div>
+                <input type="text" placeholder="Search location or zip code" autocomplete="off" id="query">
+                <button id="search">
+                    <img src="<%= require('./assets/searchIcon.svg') %>" alt="search" class="icon">
+                </button>
+            </div>
+            <button id="unit">°F mph</button>
+        </div>
+
+        <div id="main"></div>
+
+        <footer>
+            <span class="greyed-text">Built by</span> <a href="https://www.github.com/a-sad-dan" target="_blank">
+                a-sad-dan </a> <span class="greyed-text">|</span> <a href="https://www.github.com/a-sad-dan/weathernaut"
+                target="_blank">Source Code</a>
+        </footer>
 </body>
+
 </html>
