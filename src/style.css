@@ -11,20 +11,28 @@
     font-size: 18px;
     --white: #f0f0f0;
     --off-white: #E5E95E5;
-    --grey: #b2b2b2;
+    --grey: #cfcfcf;
     --dark-green: #0A2E25;
     --border-color: #80DFEC66;
 
     --dark-green: #0E2D44;
+    font-weight: 600;
+}
+
+@media (prefers-color-scheme:light) {
+    body {
+        filter: invert(0.9);
+        background: antiquewhite !important;
+    }
 }
 
 body {
-    background: linear-gradient(90deg, #012215 0%, #00605C 100%);
     color: var(--white);
     font-family: 'Nunito', sans-serif;
 
-    background:  linear-gradient(0deg, #16003C 4.92%, #044B71 90.38%), linear-gradient(90deg, #012215 0%, #00605C 100%);
-    background-blend-mode: lighten, normal;
+    background: linear-gradient(-10deg, #16003C 4.92%, #044B71 90.38%);
+    /* dark-light mode transition */
+    transition: 0.4s ease-in-out; 
 
 }
 
@@ -34,7 +42,14 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    overflow-y: scroll;
+
 }
+
+.page-wrapper::-webkit-scrollbar {
+    width: 0px;
+}
+
 
 
 #top-bar {
@@ -42,6 +57,8 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 2rem 1.5rem;
+    position: sticky;
+    top: 0;
 }
 
 #top-bar>* {
@@ -64,28 +81,40 @@ body {
     color: var(--white);
     padding: 0 1em;
     border-radius: 32px 0 0 32px;
-    /* border: 2px solid var(--white); */
-    border: 4px solid var(--border-color);
+    /* border: 4px solid var(--border-color); */
+    border: unset;
     border-right: unset;
     min-width: 320px;
     font-size: 1.33rem;
     font-weight: 600;
     padding: 0.45em 1.25em;
+    outline: none;
 }
 
 button {
     cursor: pointer;
 }
 
+form:focus-within {
+    outline: 4px solid var(--border-color);
+    border-radius: 32px;
+}
+
+button#search:focus {
+    border-left: 4px solid var(--border-color);
+}
+
 button#search {
     background: var(--dark-green);
     /* border: 2px solid var(--white); */
-    border: 4px solid var(--border-color);
+    /* border: 4px solid var(--border-color); */
+    border: unset;
 
     border-radius: 0 32px 32px 0;
     border-left: 0;
     display: flex;
     padding: 0.45em 1.25em;
+    outline: none;
 }
 
 button#search img {
@@ -95,18 +124,23 @@ button#search img {
 
 button#unit {
     border-radius: 32px;
-    border: 4px solid rgba(128, 223, 236, 0.40);
     background: var(--dark-green);
+    border: unset;
     color: var(--white);
     padding: 0.45em 1.25em;
     font-size: 1.2rem;
     font-weight: 600;
     font-size: 1.33rem;
+    outline: unset;
+}
 
+
+button#unit:focus {
+    outline: 4px solid var(--border-color);
 }
 
 button#unit:active {
-    border-style: inset;
+    outline-style: inset;
 }
 
 footer {
@@ -128,7 +162,97 @@ a:hover {
     text-underline-offset: 4px;
 }
 
-footer .greyed-text {
-    color: var(--grey);
+footer {
     font-size: 1.1rem;
+}
+
+.greyed-text {
+    color: var(--grey);
+}
+
+
+/* -----------Main Styles------------ */
+
+
+#main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+#result-name {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+
+#date-info {
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+#result-name,
+#date-info {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+
+#weather-info {
+    font-weight: 700;
+}
+
+
+section#current-info {
+    display: flex;
+    gap: 1rem;
+}
+
+
+#weather-info_primary {
+    display: flex;
+    align-items: end;
+    font-weight: 800;
+
+}
+
+#temperature {
+    font-size: 3rem;
+    font-weight: 800;
+}
+
+
+section#secondary-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5em 1em
+}
+
+.secondary-info_heading {
+    font-size: 1rem;
+    color: var(--grey);
+}
+
+#forecast-info h2 {
+    margin: 1em 0;
+    text-align: center;
+}
+
+.secondary-info_detail {
+    font-size: 1.29rem;
+    font-weight: 700;
+}
+
+div[data-day] {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1em;
+    padding: 0.5rem 0;
+    justify-items: center;
+}
+
+div[data-day] .day {
+    justify-self: baseline;
+    font-size: 1.25rem;
 }
