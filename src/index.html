@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WeatherNaut</title>
     <link href="https://api.fontshare.com/v2/css?f[]=excon@1&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="<%= require('./assets/favicon.svg') %>" type="image/x-icon">
 </head>
 
 <body>
@@ -16,16 +17,112 @@
                 <img src="<%= require('./assets/logo.svg') %>" alt="">
                 <p class="name">WeatherNaut</p>
             </div>
-            <div>
-                <input type="text" placeholder="Search location or zip code" autocomplete="off" id="query">
-                <button id="search">
+            <form action="#">
+                <input type="text" placeholder="Search location or zip code" required autocomplete="off" id="query">
+                <button id="search" type="submit">
                     <img src="<%= require('./assets/searchIcon.svg') %>" alt="search" class="icon">
                 </button>
-            </div>
+            </form>
             <button id="unit">°F mph</button>
         </div>
 
-        <div id="main"></div>
+        <main id="main-content">
+
+            <section id="result-info">
+                <div id="result-name">
+                    <span id="city-name">New Delhi</span>
+                    <span id="country-name">India</span>
+                </div>
+                <div id="date-info" class="greyed-text">
+                    <span id="day">Monday</span>
+                    <span id="date">20 November 2023</span> |
+                    <span id="time">11:38</span>
+                </div>
+            </section>
+
+            <section id="current-info">
+                <section id="weather-info">
+                    <div id="weather-info_primary">
+                        <img src="<%= require('./assets/weather-icon.svg') %>" alt="weather-icon" id="weather-icon">
+                        <p id="temperature">12 C</p>
+                    </div>
+                    <div id="weather-info_secondary" class="greyed-text">
+                        <div id="temp-description">Breeze</div>
+                        <div>Feels like <span id="feels-like">11 C</span></div>
+                        <div id="wind-info">5 - SE</div>
+                    </div>
+                </section>
+
+                <section id="secondary-info">
+                    <div>
+                        <div class="secondary-info_heading">Wind</div>
+                        <div class="secondary-info_detail">7ms</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">Humidity</div>
+                        <div class="secondary-info_detail">81%</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">UV index</div>
+                        <div class="secondary-info_detail">0</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">Visibility</div>
+                        <div class="secondary-info_detail">10km</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">Cloudiness</div>
+                        <div class="secondary-info_detail">20%</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">Chance of rain</div>
+                        <div class="secondary-info_detail">97%</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">Sunrise</div>
+                        <div class="secondary-info_detail">08:09</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">Sunset</div>
+                        <div class="secondary-info_detail">16:42</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">Phase</div>
+                        <div class="secondary-info_detail">First Quarter Moon</div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- including a forecast for 3 days -->
+            <section id="forecast-info">
+                <h2>Weekly Forecast</h2>
+                <div data-day>
+                    <div class="day"></div>
+                    <div class="max-temp">Max</div>
+                    <div class="min-temp">Min</div>
+                    <div class="wind">Wind</div>
+                </div>
+                <div data-day=" 0">
+                    <div class="day">Tuesday</div>
+                    <div class="max-temp">10</div>
+                    <div class="min-temp">7</div>
+                    <div class="wind">5</div>
+                </div>
+                <div data-day=" 1">
+                    <div class="day">Wednesday</div>
+                    <div class="max-temp">11</div>
+                    <div class="min-temp">8</div>
+                    <div class="wind">4</div>
+                </div>
+                <div data-day=" 2">
+                    <div class="day">Thursday</div>
+                    <div class="max-temp">8</div>
+                    <div class="min-temp">6</div>
+                    <div class="wind">2</div>
+                </div>
+            </section>
+
+        </main>
 
         <footer>
             <span class="greyed-text">Built by</span> <a href="https://www.github.com/a-sad-dan" target="_blank">
