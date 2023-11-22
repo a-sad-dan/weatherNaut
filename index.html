@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WeatherNaut</title>
+    <link href="https://api.fontshare.com/v2/css?f[]=excon@1&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="images/favicon.svg" type="image/x-icon">
+<script defer src="index.bundle.js"></script></head>
+
+<body>
+    <div class="page-wrapper">
+
+        <div id="top-bar">
+            <div id="logo">
+                <img src="images/logo.svg" alt="">
+                <p class="name">WeatherNaut</p>
+            </div>
+            <form action="#">
+                <input type="text" placeholder="Search location" required autocomplete="off" id="query">
+                <button id="search" type="submit">
+                    <img src="images/searchIcon.svg" alt="search" class="icon">
+                </button>
+            </form>
+            <button id="unit">°C km/h</button>
+        </div>
+
+        <main id="main-content">
+
+            <section id="result-info">
+                <div id="result-name">
+                    <span id="city-name">New Delhi</span>
+                    <span id="country-name">India</span>
+                </div>
+                <div id="date-info" class="greyed-text">
+                    <span id="day">Monday</span>
+                    <span id="date">20 November 2023</span>
+                    <span id="time">11:38</span>
+                </div>
+            </section>
+
+            <section id="current-info">
+                <section id="weather-info">
+                    <div id="weather-info_primary">
+                        <img src="images/weather-icon.svg" alt="weather-icon" id="weather-icon">
+                        <p id="temperature">12 C</p>
+                    </div>
+                    <div id="weather-info_secondary" class="greyed-text">
+                        <div id="temp-description">Breeze</div>
+                        <div>Feels like <span id="feels-like">26 C</span></div>
+                    </div>
+                </section>
+
+                <section id="secondary-info">
+                    <div>
+                        <div class="secondary-info_heading">Wind</div>
+                        <div class="secondary-info_detail" id="wind">7ms</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">Humidity</div>
+                        <div class="secondary-info_detail" id="humidity">81%</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">UV index</div>
+                        <div class="secondary-info_detail" id="uv-index">0</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">Visibility</div>
+                        <div class="secondary-info_detail" id="visibility">10km</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">Cloudiness</div>
+                        <div class="secondary-info_detail" id="cloudiness">20%</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">Chance of rain</div>
+                        <div class="secondary-info_detail" id="chance-of-rain">97%</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">Sunrise</div>
+                        <div class="secondary-info_detail" id="sunrise">08:09</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">Sunset</div>
+                        <div class="secondary-info_detail" id="sunset">16:42</div>
+                    </div>
+                    <div>
+                        <div class="secondary-info_heading">Moon Phase</div>
+                        <div class="secondary-info_detail" id="moon-phase">First Quarter Moon</div>
+                    </div>
+                </section>
+            </section>
+
+            <!-- including a forecast for 3 days -->
+            <section id="forecast-info">
+                <h2>Weekly Forecast</h2>
+                <div id="forecasts">
+
+                    <div class="day">Day</div>
+                    <div class="max-temp">Max</div>
+                    <div class="min-temp">Min</div>
+                    <div class="wind">Wind</div>
+
+                    <div data-day="0" class="day">Tuesday</div>
+                    <div data-day="0" class="max-temp">10</div>
+                    <div data-day="0" class="min-temp">7</div>
+                    <div data-day="0" class="wind">5</div>
+
+                    <div data-day="1" class="day">Wednesday</div>
+                    <div data-day="1" class="max-temp">11</div>
+                    <div data-day="1" class="min-temp">8</div>
+                    <div data-day="1" class="wind">4</div>
+
+                    <div data-day="2" class="day">Thursday</div>
+                    <div data-day="2" class="max-temp">8</div>
+                    <div data-day="2" class="min-temp">6</div>
+                    <div data-day="2" class="wind">2</div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <span class="greyed-text">Built by</span> <a href="https://www.github.com/a-sad-dan" target="_blank">
+                a-sad-dan </a> <span class="greyed-text">|</span> <a href="https://www.github.com/a-sad-dan/weathernaut"
+                target="_blank">Source Code</a>
+        </footer>
+    </div>
+</body>
+
+</html>
