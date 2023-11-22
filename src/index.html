@@ -18,7 +18,7 @@
                 <p class="name">WeatherNaut</p>
             </div>
             <form action="#">
-                <input type="text" placeholder="Search location or IP Address" required autocomplete="off" id="query">
+                <input type="text" placeholder="Search location" required autocomplete="off" id="query">
                 <button id="search" type="submit">
                     <img src="<%= require('./assets/searchIcon.svg') %>" alt="search" class="icon">
                 </button>
@@ -95,29 +95,27 @@
             <!-- including a forecast for 3 days -->
             <section id="forecast-info">
                 <h2>Weekly Forecast</h2>
-                <div data-day>
-                    <div class="day"></div>
+                <div id="forecasts">
+
+                    <div class="day">Day</div>
                     <div class="max-temp">Max</div>
                     <div class="min-temp">Min</div>
                     <div class="wind">Wind</div>
-                </div>
-                <div data-day=" 0">
-                    <div class="day">Tuesday</div>
-                    <div class="max-temp">10</div>
-                    <div class="min-temp">7</div>
-                    <div class="wind">5</div>
-                </div>
-                <div data-day=" 1">
-                    <div class="day">Wednesday</div>
-                    <div class="max-temp">11</div>
-                    <div class="min-temp">8</div>
-                    <div class="wind">4</div>
-                </div>
-                <div data-day=" 2">
-                    <div class="day">Thursday</div>
-                    <div class="max-temp">8</div>
-                    <div class="min-temp">6</div>
-                    <div class="wind">2</div>
+
+                    <div data-day="0" class="day">Tuesday</div>
+                    <div data-day="0" class="max-temp">10</div>
+                    <div data-day="0" class="min-temp">7</div>
+                    <div data-day="0" class="wind">5</div>
+
+                    <div data-day="1" class="day">Wednesday</div>
+                    <div data-day="1" class="max-temp">11</div>
+                    <div data-day="1" class="min-temp">8</div>
+                    <div data-day="1" class="wind">4</div>
+
+                    <div data-day="2" class="day">Thursday</div>
+                    <div data-day="2" class="max-temp">8</div>
+                    <div data-day="2" class="min-temp">6</div>
+                    <div data-day="2" class="wind">2</div>
                 </div>
             </section>
 
@@ -128,6 +126,7 @@
                 a-sad-dan </a> <span class="greyed-text">|</span> <a href="https://www.github.com/a-sad-dan/weathernaut"
                 target="_blank">Source Code</a>
         </footer>
+    </div>
 </body>
 
 </html>

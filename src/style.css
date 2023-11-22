@@ -20,10 +20,15 @@
 }
 
 @media (prefers-color-scheme:light) {
-    body {
+    /* body {
         filter: invert(0.9);
         background: antiquewhite !important;
     }
+
+    #weather-icon {
+        filter: invert(0.9);
+    } */
+
 }
 
 body {
@@ -32,8 +37,7 @@ body {
 
     background: linear-gradient(-10deg, #16003C 4.92%, #044B71 90.38%);
     /* dark-light mode transition */
-    transition: 0.4s ease-in-out; 
-
+    transition: 0.4s ease-in-out;
 }
 
 .page-wrapper {
@@ -42,17 +46,15 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    overflow-y: scroll;
+    /* overflow-y: scroll; */
 
 }
 
-.page-wrapper::-webkit-scrollbar {
-    width: 0px;
-}
 
 
 
 #top-bar {
+    font-family: "Nunito", sans-serif;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -170,6 +172,17 @@ footer {
     color: var(--grey);
 }
 
+/* ----------PseudoElements----------- */
+#city-name:after {
+    content: ',';
+}
+
+#date::after {
+    content: ' |';
+    position: relative;
+    top: -2px;
+}
+
 
 /* -----------Main Styles------------ */
 
@@ -179,6 +192,12 @@ footer {
     flex-direction: column;
     align-items: center;
     gap: 1em;
+    overflow-y: scroll;
+    scrollbar-width: none;
+}
+
+#main-content::-webkit-scrollbar {
+    width: 0px;
 }
 
 #result-name {
@@ -202,6 +221,16 @@ footer {
 #weather-info {
     font-weight: 700;
 }
+
+#weather-icon {
+    width: 5rem;
+}
+
+#temp-description {
+    font-size: 1.6rem;
+    color: var(--white);
+}
+
 
 
 section#current-info {
