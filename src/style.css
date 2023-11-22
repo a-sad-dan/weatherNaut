@@ -31,6 +31,10 @@
 
 }
 
+html {
+    overflow: clip;
+}
+
 body {
     color: var(--white);
     font-family: 'Nunito', sans-serif;
@@ -46,7 +50,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    /* overflow-y: scroll; */
+    overflow-y: scroll;
+    overflow-x: hidden;
 
 }
 
@@ -273,15 +278,74 @@ section#secondary-info {
     font-weight: 700;
 }
 
-div[data-day] {
+#forecasts {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+
     gap: 1em;
     padding: 0.5rem 0;
     justify-items: center;
 }
 
-div[data-day] .day {
+#forecasts .day {
     justify-self: baseline;
     font-size: 1.25rem;
+}
+
+
+
+/* ------------Media Queries------------ */
+@media screen and (max-width : 768px) {
+    :root {
+        font-size: 16px;
+    }
+
+    #logo {
+        display: none;
+    }
+
+    #current-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    section#secondary-info,
+    section#forecast-info {
+        padding: 1rem 2.5rem;
+    }
+
+    .secondary-info_detail {
+        font-size: 1.19rem;
+        font-weight: 600;
+    }
+
+    #top-bar {
+        padding: 1.5rem 1rem;
+        gap: 1rem;
+    }
+
+    #logo img {
+        width: 36px;
+    }
+
+    button#search {
+        padding: 0.5em 0.8em;
+    }
+
+    input#query {
+        width: 100%;
+        min-width: unset;
+        font-size: 1.1rem;
+        font-weight: 500;
+        padding: 0.2em 0.6em;
+        padding-left: 1em;
+    }
+
+    button#unit {
+        height: 98%;
+        padding: 0 1rem;
+        font-size: 1.1rem;
+        white-space: nowrap;
+    }
 }
