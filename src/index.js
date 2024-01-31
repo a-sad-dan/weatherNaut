@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 import fetchForecastData from "./api";
 import "./style.css";
 
@@ -58,6 +59,7 @@ function updateContent(forecastData) {
 	console.log(forecastData.current.feelslike_c);
 
 	const wind = document.getElementById("wind");
+	const windDirection = document.getElementById("wind-direction")
 	const humidity = document.getElementById("humidity");
 	const uvIndex = document.getElementById("uv-index");
 	const visibility = document.getElementById("visibility");
@@ -67,7 +69,8 @@ function updateContent(forecastData) {
 	const sunset = document.getElementById("sunset");
 	const moonPhase = document.getElementById("moon-phase");
 
-	wind.textContent = `${forecastData.current.wind_kph} ${forecastData.current.wind_dir}`;
+	wind.textContent = `${forecastData.current.wind_kph}`;
+	windDirection.textContent = `${forecastData.current.wind_dir}`
 	humidity.textContent = forecastData.current.humidity;
 	uvIndex.textContent = forecastData.current.uv;
 	visibility.textContent = forecastData.current.vis_km;
@@ -101,7 +104,10 @@ function updateContent(forecastData) {
 async function handleFormSubmit(e) {
 	e.preventDefault();
 	const searchQuery = document.getElementById("query").value;
-	console.log(searchQuery);
+
+	localStorage.setItem("default", searchQuery);
+	console.log("saved query", localStorage.getItem("default"))
+	// console.log(searchQuery);
 
 	const data = await fetchForecastData(searchQuery);
 
@@ -109,7 +115,74 @@ async function handleFormSubmit(e) {
 }
 
 
+let defaultData;
+if (localStorage.getItem("default")) {
+	const query = localStorage.getItem("default");
+	console.log(query);
+	defaultData = await fetchForecastData(query);
+	updateContent(defaultData);
+}
+else {
+	// Setting default as new Delhi if nothing in local storage
+	defaultData = await fetchForecastData("new delhi");
+	updateContent(defaultData);
+}
 
+// Initially everything is metric
+function toggleUnits() {
+	const data = Array.from(document.querySelectorAll(".unit"));
+	const metricSpeed = Array.from(document.querySelectorAll(".metric.speed"));
+	const metricTemp = Array.from(document.querySelectorAll(".metric.temp"));
+
+	const imperialSpeed = Array.from(document.querySelectorAll(".imperial.speed"));
+	const imperialTemp = Array.from(document.querySelectorAll(".imperial.temp"));
+
+	const visibility = document.getElementById("visibility");
+
+	if (metricSpeed.length || metricTemp.length) {
+		metricSpeed.forEach(element => {
+			const value = element.textContent;
+			const converted = Math.round(value * 6.21371192) / 10;
+			element.textContent = converted;
+		})
+
+		metricTemp.forEach(element => {
+			const value = element.textContent;
+			const converted = Math.round(((value * 9 / 5) + 32) * 10) / 10;
+			element.textContent = converted;
+		});
+
+		visibility.textContent = Math.round(visibility.textContent * 6.21371) / 10;
+	}
+	if (imperialSpeed.length || imperialTemp.length) {
+		imperialSpeed.forEach(element => {
+			const value = element.textContent;
+			const converted = Math.round(value * 16.0934) / 10;
+			element.textContent = converted;
+		});
+		// f to c
+		imperialTemp.forEach(element => {
+			const value = element.textContent;
+			const converted = Math.round(((value - 32) * 5 / 9) * 10) / 10;
+			element.textContent = converted;
+		})
+
+		visibility.textContent = Math.round(visibility.textContent * 16.0934) / 10
+	}
+
+
+
+	// console.log("data", data);
+	data.forEach(element => {
+		element.classList.toggle("metric");
+		element.classList.toggle("imperial");
+	});
+
+}
+
+
+const unitBtn = document.getElementById("unit");
+unitBtn.addEventListener("click", toggleUnits)
 
 const form = document.querySelector("form");
 form.addEventListener("submit", handleFormSubmit);

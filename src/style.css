@@ -197,6 +197,21 @@ footer {
     color: var(--grey);
 }
 
+.metric.distance::after {
+    content: " km";
+    font-size: 0.8em;
+    font-weight: 700;
+    color: var(--grey);
+}
+
+.imperial.distance::after {
+    content: " miles";
+    font-size: 0.8em;
+    font-weight: 700;
+    color: var(--grey);
+
+}
+
 .imperial.temp::after {
     content: ' ℉';
     font-size: 0.8em;
@@ -317,6 +332,16 @@ section#secondary-info {
 #forecasts .day {
     justify-self: baseline;
     font-size: 1.25rem;
+}
+
+
+/* quick fixes for wind div */
+#wind-direction {
+    display: inline;
+}
+
+#wind {
+    display: inline;
 }
 
 
