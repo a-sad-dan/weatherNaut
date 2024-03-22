@@ -26,18 +26,32 @@ function convertEpochTime(epochTime) {
 	};
 }
 
+function showLoader(show) {
+	const loader = document.querySelector("#loader");
+	const mainContent = document.querySelector("#main-content");
+	if (show) {
+		loader.classList.remove("hidden");
+		mainContent.classList.add("hidden");
+	} else {
+		loader.classList.add("hidden");
+		mainContent.classList.remove("hidden");
+	}
+}
+
 function updateContent(forecastData) {
 	const mainContent = document.querySelector("#main-content");
 	const errorP = document.querySelector("#error-message");
 
 	// Error handling
 	if (forecastData.error) {
+		errorP.classList.remove("hidden");
 		errorP.textContent = forecastData.error.message;
 		mainContent.classList.add("hidden");
 		return;
 	}
 
-	errorP.textContent = "";
+	// Remove Error P and show content
+	errorP.classList.add("hidden");
 	mainContent.classList.remove("hidden");
 	
 	const cityName = document.getElementById("city-name");
@@ -69,7 +83,7 @@ function updateContent(forecastData) {
 	tempDesc.textContent = forecastData.current.condition.text;
 	feelsLike.textContent = forecastData.current.feelslike_c;
 
-	console.log(forecastData.current.feelslike_c);
+	// console.log(forecastData.current.feelslike_c);
 
 	const wind = document.getElementById("wind");
 	const windDirection = document.getElementById("wind-direction");
@@ -116,20 +130,20 @@ function updateContent(forecastData) {
 async function handleFormSubmit(e) {
 	e.preventDefault();
 	const searchQuery = document.getElementById("query").value;
-
+	showLoader(true);
 	localStorage.setItem("default", searchQuery);
 	console.log("saved query", localStorage.getItem("default"));
 	// console.log(searchQuery);
 
 	const data = await fetchForecastData(searchQuery);
-
+	showLoader(false);
 	updateContent(data);
 }
 
 let defaultData;
 if (localStorage.getItem("default")) {
 	const query = localStorage.getItem("default");
-	console.log(query);
+	// console.log(query);
 	defaultData = await fetchForecastData(query);
 	updateContent(defaultData);
 } else {

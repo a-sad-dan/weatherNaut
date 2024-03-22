@@ -1,198 +1,216 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
 
-
 * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 :root {
-    font-size: 18px;
-    --white: #f0f0f0;
-    --off-white: #E5E95E5;
-    --grey: #cfcfcf;
-    --dark-green: #0A2E25;
-    --border-color: #80DFEC66;
+	font-size: 18px;
+	--white: #f0f0f0;
+	--off-white: #E5E95E5;
+	--grey: #cfcfcf;
+	--dark-green: #0a2e25;
+	--border-color: #80dfec66;
 
-    --dark-green: #0E2D44;
-    font-weight: 600;
+	--dark-green: #0e2d44;
+	font-weight: 600;
 }
 
-@media (prefers-color-scheme:light) {
-    body {
-        filter: invert(0.9);
-        background: antiquewhite !important;
-    }
+@media (prefers-color-scheme: light) {
+	body {
+		filter: invert(0.9);
+		background: antiquewhite !important;
+	}
 
-    #weather-icon {
-        filter: invert(0.9);
-    }
-
+	#weather-icon {
+		filter: invert(0.9);
+	}
 }
 
 html {
-    overflow: clip;
+	overflow: clip;
 }
 
 body {
-    color: var(--white);
-    font-family: 'Nunito', sans-serif;
+	color: var(--white);
+	font-family: 'Nunito', sans-serif;
 
-    background: linear-gradient(-10deg, #16003C 4.92%, #044B71 90.38%);
-    /* dark-light mode transition */
-    transition: 0.4s ease-in-out;
+	background: linear-gradient(-10deg, #16003c 4.92%, #044b71 90.38%);
+	/* dark-light mode transition */
+	transition: 0.4s ease-in-out;
 }
 
 .page-wrapper {
-    height: 100vh;
-    height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    overflow-y: scroll;
-    overflow-x: hidden;
-
+	height: 100vh;
+	height: 100svh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	overflow-y: scroll;
+	overflow-x: hidden;
 }
-
-
-
 
 #top-bar {
-    font-family: "Nunito", sans-serif;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem 1.5rem;
-    position: sticky;
-    top: 0;
+	font-family: 'Nunito', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 2rem 1.5rem;
+	position: sticky;
+	top: 0;
 }
 
-#top-bar>* {
-    display: inherit;
-    align-items: center;
+#top-bar > * {
+	display: inherit;
+	align-items: center;
 }
 
 #logo p {
-    font-size: 1.5rem;
-    font-weight: 700;
+	font-size: 1.5rem;
+	font-weight: 700;
 }
 
 #logo img {
-    width: 48px;
+	width: 48px;
 }
 
 #query {
-    align-self: stretch;
-    background: var(--dark-green);
-    color: var(--white);
-    padding: 0 1em;
-    border-radius: 32px 0 0 32px;
-    /* border: 4px solid var(--border-color); */
-    border: unset;
-    border-right: unset;
-    min-width: 320px;
-    font-size: 1.33rem;
-    font-weight: 600;
-    padding: 0.45em 1.25em;
-    outline: none;
+	align-self: stretch;
+	background: var(--dark-green);
+	color: var(--white);
+	padding: 0 1em;
+	border-radius: 32px 0 0 32px;
+	/* border: 4px solid var(--border-color); */
+	border: unset;
+	border-right: unset;
+	min-width: 320px;
+	font-size: 1.33rem;
+	font-weight: 600;
+	padding: 0.45em 1.25em;
+	outline: none;
 }
 
 button {
-    cursor: pointer;
+	cursor: pointer;
 }
 
 form:focus-within {
-    outline: 4px solid var(--border-color);
-    border-radius: 32px;
+	outline: 4px solid var(--border-color);
+	border-radius: 32px;
 }
 
 button#search:focus {
-    border-left: 4px solid var(--border-color);
+	border-left: 4px solid var(--border-color);
 }
 
 button#search {
-    background: var(--dark-green);
-    /* border: 2px solid var(--white); */
-    /* border: 4px solid var(--border-color); */
-    border: unset;
+	background: var(--dark-green);
+	/* border: 2px solid var(--white); */
+	/* border: 4px solid var(--border-color); */
+	border: unset;
 
-    border-radius: 0 32px 32px 0;
-    border-left: 0;
-    display: flex;
-    padding: 0.45em 1.25em;
-    outline: none;
+	border-radius: 0 32px 32px 0;
+	border-left: 0;
+	display: flex;
+	padding: 0.45em 1.25em;
+	outline: none;
 }
 
 button#search img {
-    width: 32px;
-    padding: 0.3em 0;
+	width: 32px;
+	padding: 0.3em 0;
 }
 
 button#unit {
-    border-radius: 32px;
-    background: var(--dark-green);
-    border: unset;
-    color: var(--white);
-    padding: 0.45em 1.25em;
-    font-size: 1.2rem;
-    font-weight: 600;
-    font-size: 1.33rem;
-    outline: unset;
+	border-radius: 32px;
+	background: var(--dark-green);
+	border: unset;
+	color: var(--white);
+	padding: 0.45em 1.25em;
+	font-size: 1.2rem;
+	font-weight: 600;
+	font-size: 1.33rem;
+	outline: unset;
 }
 
-
 button#unit:focus {
-    outline: 4px solid var(--border-color);
+	outline: 4px solid var(--border-color);
 }
 
 button#unit:active {
-    outline-style: inset;
+	outline-style: inset;
 }
 
 footer {
-    padding: 1rem 0;
-    text-align: center;
+	padding: 1rem 0;
+	text-align: center;
 
-    color: var(--off-white);
-    font-size: 1.2rem;
-    font-weight: 600;
+	color: var(--off-white);
+	font-size: 1.2rem;
+	font-weight: 600;
 }
 
 footer a {
-    color: unset;
-    text-decoration: unset;
+	color: unset;
+	text-decoration: unset;
 }
 
 a:hover {
-    text-decoration: underline;
-    text-underline-offset: 4px;
+	text-decoration: underline;
+	text-underline-offset: 4px;
 }
 
 footer {
-    font-size: 1.1rem;
+	font-size: 1.1rem;
 }
 
 .greyed-text {
-    color: var(--grey);
+	color: var(--grey);
+}
+
+
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
 }
 
 /* ----------PseudoElements----------- */
 #city-name:after {
-    content: ',';
+	content: ',';
 }
 
 #date::after {
-    content: ' |';
-    position: relative;
-    top: -2px;
+	content: ' |';
+	position: relative;
+	top: -2px;
 }
+
+
 
 /* -------------Error Message ------------- */
 #error-message
 {
     text-align: center;
     font-size: 1.235rem;
+}
+
+/* ---------- Loader ----------- */
+#loader {
+	border: 4px solid rgba(255, 255, 255, 0.3); /* White with some transparency */
+	border-radius: 50%;
+	border-top: 4px solid #ffffff; /* White */
+	width: 40px;
+	height: 40px;
+	animation: spin 1s linear infinite; /* Animation for spinning */
+	margin: auto;
+	margin-top: 20px;
 }
 
 /* -----------Main Styles------------ */
@@ -202,233 +220,221 @@ footer {
 }
 
 .metric.temp::after {
-    content: " ℃";
-    font-size: 0.8em;
-    font-weight: 700;
-    color: var(--grey);
+	content: ' ℃';
+	font-size: 0.8em;
+	font-weight: 700;
+	color: var(--grey);
 }
 
 .metric.distance::after {
-    content: " km";
-    font-size: 0.8em;
-    font-weight: 700;
-    color: var(--grey);
+	content: ' km';
+	font-size: 0.8em;
+	font-weight: 700;
+	color: var(--grey);
 }
 
 .imperial.distance::after {
-    content: " miles";
-    font-size: 0.8em;
-    font-weight: 700;
-    color: var(--grey);
-
+	content: ' miles';
+	font-size: 0.8em;
+	font-weight: 700;
+	color: var(--grey);
 }
 
 .imperial.temp::after {
-    content: ' ℉';
-    font-size: 0.8em;
-    font-weight: 700;
-    color: var(--grey);
+	content: ' ℉';
+	font-size: 0.8em;
+	font-weight: 700;
+	color: var(--grey);
 }
 
 .metric.speed::after {
-    content: ' km/h';
-    font-size: 0.8em;
-    font-weight: 700;
-    color: var(--grey);
+	content: ' km/h';
+	font-size: 0.8em;
+	font-weight: 700;
+	color: var(--grey);
 }
 
 .imperial.speed::after {
-    content: ' mph';
-    font-size: 0.8em;
-    font-weight: 700;
-    color: var(--grey);
+	content: ' mph';
+	font-size: 0.8em;
+	font-weight: 700;
+	color: var(--grey);
 }
 
-
 #main-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1em;
-    overflow-y: scroll;
-    scrollbar-width: none;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1em;
+	overflow-y: scroll;
+	scrollbar-width: none;
 }
 
 #main-content::-webkit-scrollbar {
-    width: 0px;
+	width: 0px;
 }
 
 #result-name {
-    font-size: 2.4rem;
-    font-weight: 700;
+	font-size: 2.4rem;
+	font-weight: 700;
 }
 
-
 #date-info {
-    text-align: center;
-    font-size: 1.1rem;
+	text-align: center;
+	font-size: 1.1rem;
 }
 
 #result-name,
 #date-info {
-    display: flex;
-    gap: 8px;
-    justify-content: center;
+	display: flex;
+	gap: 8px;
+	justify-content: center;
 }
 
 #weather-info {
-    font-weight: 700;
+	font-weight: 700;
 }
 
 #weather-icon {
-    width: 5rem;
+	width: 5rem;
 }
 
 #temp-description {
-    font-size: 1.6rem;
-    color: var(--white);
+	font-size: 1.6rem;
+	color: var(--white);
 }
-
-
 
 section#current-info {
-    display: flex;
-    gap: 1rem;
+	display: flex;
+	gap: 1rem;
 }
 
-
 #weather-info_primary {
-    display: flex;
-    align-items: end;
-    font-weight: 800;
-
+	display: flex;
+	align-items: end;
+	font-weight: 800;
 }
 
 #temperature {
-    font-size: 3rem;
-    font-weight: 800;
+	font-size: 3rem;
+	font-weight: 800;
 }
 
-
 section#secondary-info {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5em 1em
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.5em 1em;
 }
 
 .secondary-info_heading {
-    font-size: 1rem;
-    color: var(--grey);
+	font-size: 1rem;
+	color: var(--grey);
 }
 
 #forecast-info h2 {
-    margin: 1em 0;
-    text-align: center;
+	margin: 1em 0;
+	text-align: center;
 }
 
 .secondary-info_detail {
-    font-size: 1.29rem;
-    font-weight: 700;
+	font-size: 1.29rem;
+	font-weight: 700;
 }
 
 #forecasts {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
 
-    gap: 1em;
-    padding: 0.5rem 0;
-    justify-items: center;
+	gap: 1em;
+	padding: 0.5rem 0;
+	justify-items: center;
 }
 
 #forecasts .day {
-    justify-self: baseline;
-    font-size: 1.25rem;
+	justify-self: baseline;
+	font-size: 1.25rem;
 }
-
 
 /* quick fixes for wind div */
 #wind-direction {
-    display: inline;
+	display: inline;
 }
 
 #wind {
-    display: inline;
+	display: inline;
 }
 
-
-
 /* ------------Media Queries------------ */
-@media screen and (max-width : 768px) {
-    :root {
-        font-size: 16px;
-    }
+@media screen and (max-width: 768px) {
+	:root {
+		font-size: 16px;
+	}
 
-    #logo {
-        display: none;
-    }
+	#logo {
+		display: none;
+	}
 
-    #current-info {
-        flex-direction: column;
-        align-items: center;
-    }
+	#current-info {
+		flex-direction: column;
+		align-items: center;
+	}
 
+	section#secondary-info,
+	section#forecast-info {
+		padding: 1rem 2.5rem;
+	}
 
-    section#secondary-info,
-    section#forecast-info {
-        padding: 1rem 2.5rem;
-    }
+	.secondary-info_detail {
+		font-size: 1.19rem;
+		font-weight: 600;
+	}
 
-    .secondary-info_detail {
-        font-size: 1.19rem;
-        font-weight: 600;
-    }
+	#top-bar {
+		padding: 1.25rem 1rem;
+		gap: 1rem;
+	}
 
-    #top-bar {
-        padding: 1.25rem 1rem;
-        gap: 1rem;
-    }
+	#logo img {
+		width: 36px;
+	}
 
-    #logo img {
-        width: 36px;
-    }
+	input#query {
+		width: 100%;
+		min-width: unset;
+		font-size: 1.1rem;
+		font-weight: 500;
+		padding: 0.2em 0.6em;
+		padding-left: 1em;
+	}
 
-    input#query {
-        width: 100%;
-        min-width: unset;
-        font-size: 1.1rem;
-        font-weight: 500;
-        padding: 0.2em 0.6em;
-        padding-left: 1em;
-    }
+	button#unit {
+		padding: 0 1rem;
+		font-size: 1.1rem;
+		white-space: nowrap;
+		height: 95%;
+	}
 
-    button#unit {
-        padding: 0 1rem;
-        font-size: 1.1rem;
-        white-space: nowrap;
-        height: 95%;
-    }
+	#weather-info {
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		align-self: stretch;
+		gap: 1rem;
+		flex-wrap: wrap;
+		padding: 0.5rem 0.8rem;
+	}
 
-    #weather-info {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        align-self: stretch;
-        gap: 1rem;
-        flex-wrap: wrap;
-        padding: 0.5rem 0.8rem;
-    }
+	#temp-description {
+		font-size: 1.25rem;
+	}
 
-    #temp-description {
-        font-size: 1.25rem;
-    }
+	button#search {
+		padding: 0.2em 0.5em;
+		margin: 0;
+	}
 
-    button#search {
-        padding: 0.2em 0.5em;
-        margin: 0;
-    }
-
-    button#search img {
-        width: 32px;
-        padding: 0.3em 0.1rem;
-    }
+	button#search img {
+		width: 32px;
+		padding: 0.3em 0.1rem;
+	}
 }
