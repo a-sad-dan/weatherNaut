@@ -188,8 +188,19 @@ footer {
     top: -2px;
 }
 
+/* -------------Error Message ------------- */
+#error-message
+{
+    text-align: center;
+    font-size: 1.235rem;
+}
 
 /* -----------Main Styles------------ */
+.hidden
+{
+    display: none !important;
+}
+
 .metric.temp::after {
     content: " ℃";
     font-size: 0.8em;
